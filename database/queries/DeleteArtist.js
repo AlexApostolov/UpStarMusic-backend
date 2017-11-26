@@ -5,5 +5,8 @@ const Artist = require('../models/artist');
  * @param {string} _id - The ID of the artist to delete.
  * @return {promise} A promise that resolves when the record is deleted
  */
-module.exports = (_id) => {
+module.exports = _id => {
+  /* One line solution is best: only touch the DB once.
+  Usually CRUD operations in Mongoose can be done in a simple 1 line */
+  return Artist.remove({ _id });
 };
